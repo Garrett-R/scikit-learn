@@ -124,7 +124,7 @@ class Pipeline(BaseEstimator):
 
     def fit(self, X, y=None, **fit_params):
         """Fit all the transforms one after the other and transform the
-        data, then fit the transformed data using the final estimator.
+        data, then fit the final estimator to the transformed data.
         """
         Xt, fit_params = self._pre_transform(X, y, **fit_params)
         self.steps[-1][-1].fit(Xt, y, **fit_params)
